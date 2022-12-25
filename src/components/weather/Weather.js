@@ -1,5 +1,6 @@
 import React from 'react';
-import './weather.css'
+import Panel from './Panel';
+import './style.css'
 
 import WeatherInfo from './WeatherInfo'
 
@@ -8,6 +9,7 @@ const Weather = () => {
       <div className="weather-app">
          
          <WeatherInfo />
+         <Panel />
 
          {/* <div className="panel">
             <form id="locationInput">
