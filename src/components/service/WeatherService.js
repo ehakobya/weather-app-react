@@ -2,7 +2,7 @@ const API_KEY = 'dccd4b59d91d4a90aba235345222512'
 
 const getWeatherData = async (city) => {
 
-   const URL = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
+   const URL = `https://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${city}`
    const data = await fetch(URL)
       .then((res) => res.json())
       .then((data) => data)
