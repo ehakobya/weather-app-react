@@ -1,4 +1,4 @@
-# Weather Application with React JS and openwaether API
+# Responsive Weather Application with React JS and openwaether API
 
 ### Design credits to Arthur K https://dribbble.com/shots/7118235-Weather-DailyUI-037
 ### Design was used for learning purposes only
