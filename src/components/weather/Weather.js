@@ -3,6 +3,7 @@ import './weather.css'
 
 const Weather = ({ cityInfo }) => {
 
+   /* eslint-disable-next-line */
    const [tempUnit, setTempUnit] = useState('C')
 
    return (

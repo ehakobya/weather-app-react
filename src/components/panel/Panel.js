@@ -13,11 +13,11 @@ const Panel = ({ setCityInfo }) => {
       const fetchWeatherData = async () => {
          const data = await getWeatherData(selectedCity);
          setWeather(data);
-         setCityInfo(data)
+         setCityInfo(data);
          console.log(data);
       }
       fetchWeatherData()
-   }, [selectedCity])
+   }, [selectedCity,setCityInfo ])
 
    const enterKeyPressed = (e) => {
       if (e.keyCode === 13) {
