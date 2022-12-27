@@ -16,14 +16,41 @@ h1, h3 {
 
 .weather-app {
    min-height: 100vh;
-   background-image: url(./assets/images/day/day-clear.jpg);
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
    color: #fff;
    position: relative;
    transition: 500ms;
    opacity: 1; 
+}
+
+.day-clear {
+   background: url(./assets/images/day/day-clear.jpg);
+}
+.day-cloudy {
+   background: url(./assets/images/day/day-cloudy.jpg);
+}
+.day-rainy {
+   background: url(./assets/images/day/day-rainy.jpg);
+}
+.day-snowy {
+   background: url(./assets/images/day/day-snowy.jpg);
+}
+.night-clear {
+   background: url(./assets/images/night/night-clear.jpg);
+}
+.night-cloudy {
+   background: url(./assets/images/night/night-cloudy.jpg);
+}
+.night-rainy {
+   background: url(./assets/images/night/night-rainy.jpg);
+}
+.night-snowy {
+   background: url(./assets/images/night/night-snowy.jpg);
+}
+
+.weather-background {
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
 .weather-app::before {

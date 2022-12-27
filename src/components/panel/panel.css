@@ -87,3 +87,9 @@
    justify-content: space-between;
    align-items: center;
 }
+
+.two-row-data {
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+}

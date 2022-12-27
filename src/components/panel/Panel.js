@@ -1,68 +1,57 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import getWeatherData from '../service/WeatherService'
+import React, { useEffect, useState } from 'react'
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import './panel.css'
+import getWeatherData from '../service/WeatherService'
 
 const Panel = ({ setCityInfo }) => {
 
-   const [searchTerm, setSearchTerm] = useState('');
+   const [textInput, setTextInput] = useState('');
+   const [selectedCity, setSelectedCity] = useState('Paris')
    const [weather, setWeather] = useState('');
 
-   // useEffect(() => {
-   //    const fetchWeatherData = async () => {
-   //       const data = await getWeatherData(searchTerm);
-   //       setWeather(data);
-   //       console.log(weather);
-   //    };
-   //    fetchWeatherData();
-   // }, [])
+   useEffect(() => {
+      const fetchWeatherData = async () => {
+         const data = await getWeatherData(selectedCity);
+         setWeather(data);
+         setCityInfo(data)
+         console.log(data);
+      }
+      fetchWeatherData()
+   }, [selectedCity])
 
-   const fetchWeatherData = async (searchTerm) => {
-      const data = await getWeatherData(searchTerm);
-      setWeather(data);
-   };
+   const enterKeyPressed = (e) => {
+      if (e.keyCode === 13) {
+         setSelectedCity(e.currentTarget.value);
+         e.currentTarget.blur();
+      }
+   }
 
-   const handleChange = event => {
-      setSearchTerm(event.target.value);
-   };
-
-   const handleClick = async event => {
-      console.log(searchTerm)
-      await fetchWeatherData(searchTerm);
-      console.log(weather);
-      setCityInfo(weather);
-   };
+   function handleSubmit(e) {
+      e.preventDefault();
+      setSelectedCity(textInput);
+   }
 
    return (
       <div className="panel">
-         <div className="locationInput">
+         <form onSubmit={handleSubmit} className="locationInput">
             <input
-               onChange={handleChange}
-               value={searchTerm}
+               value={textInput}
+               onChange={(e) => setTextInput(e.target.value)}
+               onKeyDown={enterKeyPressed}
                type="text"
                className="search"
                placeholder="Search Location..." />
             <button
-               type="submit"
-               className="submit"
-               onChange={handleChange}
-               onClick={handleClick} >
+               type='submit'
+               className="submit" >
                <SearchOutlinedIcon />
             </button>
-         </div>
-
-         {/* <ul className="cities">
-            <li className="city">California</li>
-            <li className="city">California</li>
-            <li className="city">California</li>
-            <li className="city">California</li>
-         </ul> */}
+         </form>
 
          <ul className="details">
             <h4>Weather Details</h4>
             <li>
-               <span>Cloudy</span>
+               <span>Clouds</span>
                <span className="cloud">{weather.cloud}%</span>
             </li>
             <li>
@@ -71,7 +60,26 @@ const Panel = ({ setCityInfo }) => {
             </li>
             <li>
                <span>Wind</span>
-               <span className="wind">{weather.wind_kph}8km/h - {weather.wind_mph}8mp/h</span>
+               <div className='two-row-data'>
+                  <span className="wind">{weather.wind_kph}km/h {weather.wind_dir}</span>
+                  <span className="wind">{weather.wind_mph}mp/h {weather.wind_dir}</span>
+               </div>
+            </li>
+            <li>
+               <span>Precipitation</span>
+               <div className='two-row-data'>
+                  <span className="wind">{weather.precip_mm} mm</span>
+                  <span className="wind">{weather.precip_mm} in</span>
+               </div>
+
+            </li>
+            <li>
+               <span>Feels Like</span>
+               <div className='two-row-data'>
+                  <span className="wind">{weather.feelslike_c} &#176;C</span>
+                  <span className="wind">{weather.feelslike_f} &#176;F</span>
+               </div>
+
             </li>
          </ul>
       </div>

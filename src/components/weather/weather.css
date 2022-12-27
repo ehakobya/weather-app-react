@@ -11,6 +11,7 @@
    padding: 2em 3em 4em 3em;
 }
 
+
 .container > div > div {
    display: flex;
    justify-content: center;
@@ -47,6 +48,25 @@
    width: 50px;
    height: 50px;
    
+}
+
+.localtime {
+   display: flex;
+   align-items: center;
+}
+.weekday {
+   padding-right: 10px;
+   font-size: 1.2rem;
+   font-weight: 600;
+}
+
+.date {
+   font-size: 1.2rem;
+}
+
+.time {
+   padding-left: 10px;
+   font-size: 1.2rem;
 }
 
 .condition {
@@ -93,7 +113,7 @@
    height: 100%;
    top: 0;
    right: 0;
-   background: rgba(110, 110, 110, 0.25);
+   background: #6e6e6e40;
    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
