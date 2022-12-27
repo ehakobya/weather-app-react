@@ -1,5 +1,6 @@
 # Responsive Weather Application with React JS and openwaether API
 
+### Live Demo: https://hakedo-weather-app.netlify.app/
 ### App fetches real time data from  https://www.weatherapi.com/
 ---
 
